@@ -1,0 +1,172 @@
+#ac_map {
+width: 800px; height: 774px;
+margin: 43px auto;
+background: #eee;
+/*box-shadow:
+0 0 0 30px #f0f0f0,
+0 0 0 35px #fff,
+0 0 0 36px #eee;*/
+position: relative;
+}
+
+#overlay {
+width: 800px;
+height: 744px;
+position: absolute;
+z-index: 2;
+}
+
+#overlay img {
+width: 800px;
+height: 774px;
+border: 0;
+}
+
+#backmap {
+filter: grayscale(70%);
+}
+
+#dunes:hover, #void1:hover, #void2:hover, #void3:hover, #snowcap:hover, #wilds:hover, #grasslands:hover, #wastes:hover {
+width: 800px; height: 774px;
+position: absolute;
+top: 0;
+display: block;
+}
+
+#dunes:hover {
+background: url('https://i.ibb.co/5KGqXm1/dunes-hover-2.png');
+}
+
+#void1:hover, #void2:hover, #void3:hover {
+background: url('https://i.ibb.co/ChMzxZT/void-hover-2.png');
+}
+
+#wilds:hover {
+background: url('https://i.ibb.co/FbQ6JGR/wilds-hover-2.png');
+}
+
+#snowcap:hover {
+background: url('https://i.ibb.co/0QSFhzQ/snowcap-hover-2.png');
+}
+
+#wastes:hover {
+background: url('https://i.ibb.co/B4NkxL9/wastes-hover-2.png');
+}
+#grasslands:hover {
+background: url('https://i.ibb.co/5cZ49cF/grasslands-hover-2.png');
+}
+
+.area-hover {
+width: 250px; min-height: 100px;
+position: relative;
+background: #fff;
+border-radius: 5px;
+border: 1px solid #777;
+border-top: 10px solid #222;
+box-shadow: 0 0 8px rgba(0,0,0,0.5);
+padding-bottom: 10px;
+display: none;
+}
+
+.area-hover.grasslands {
+position: absolute;
+top: 150px; left: 470px;
+border-top: 10px solid #55b1ba;
+}
+
+.area-hover.wastes {
+position: absolute;
+top: 350px; left: 120px;
+border-top: 10px solid #9655ba;
+}
+
+.area-hover.snowcap {
+position: absolute;
+top: 50px; left: 120px;
+border-top: 10px solid #ad2727;
+}
+
+.area-hover.wilds {
+position: absolute;
+top: 100px; left: 260px;
+border-top: 10px solid #099f2c;
+}
+
+.area-hover.void {
+position: absolute;
+top: 180px; left: 250px;
+border-top: 10px solid #ff47f0;
+}
+
+.area-hover.dune {
+position: absolute;
+top: 400px; left: 180px;
+border-top: 10px solid #B2C4CE;
+}
+
+.area-hover h1 {
+font: normal 28px/34px 'EorzeaCalli';
+margin: 0; padding: 0 0 0 5px;
+color: #555;
+}
+
+.area-hover .ra {
+font-size: 30px;
+display: block;
+position: absolute;
+margin-top: -27px;
+left: 215px;
+color: #222;
+}
+
+.area-hover.grasslands .ra {
+color: #55b1ba;
+}
+
+.area-hover.wastes .ra {
+color: #9655ba;
+}
+
+.area-hover.snowcap .ra {
+color: #ad2727;
+}
+
+.area-hover > p {
+margin: 0; padding: 0 10px;
+font: normal 11px/15px Arial, sans-serif;
+text-align: justify;
+color: #444;
+}
+
+.area-hover > p ~ p {
+margin-top: 10px;
+}
+
+.area-hover p b {
+font-weight: 700;
+color: #000;
+}
+
+#grasslands:hover + .area-hover {
+display: block;
+}
+
+#wastes:hover + .area-hover {
+display: block;
+}
+
+#snowcap:hover + .area-hover {
+display: block;
+}
+
+#wilds:hover + .area-hover {
+display: block;
+}
+
+#void1:hover + .area-hover, #void2:hover + .area-hover, #void3:hover + .area-hover {
+display: block;
+}
+
+#dunes:hover + .area-hover {
+display: block;
+}
