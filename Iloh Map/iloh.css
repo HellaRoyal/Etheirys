@@ -9,23 +9,6 @@ background: #eee;
 position: relative;
 }
 
-#overlay {
-width: 800px;
-height: 744px;
-position: absolute;
-z-index: 2;
-}
-
-#overlay img {
-width: 800px;
-height: 774px;
-border: 0;
-}
-
-#backmap {
-filter: grayscale(70%);
-}
-
 .area-hover {
 width: 250px; min-height: 100px;
 position: relative;
