@@ -37,38 +37,37 @@ box-shadow: 0 0 8px rgba(0,0,0,0.5);
 padding-bottom: 10px;
 display: none;
 }
-
-.area-hover.grasslands {
+.area-hover.yol {
 position: absolute;
 top: 150px; left: 470px;
 border-top: 10px solid #55b1ba;
 }
 
-.area-hover.wastes {
+.area-hover.bathhouse {
 position: absolute;
 top: 350px; left: 120px;
 border-top: 10px solid #9655ba;
 }
 
-.area-hover.snowcap {
+.area-hover.stables {
 position: absolute;
 top: 50px; left: 120px;
 border-top: 10px solid #ad2727;
 }
 
-.area-hover.wilds {
+.area-hover.hearth {
 position: absolute;
 top: 100px; left: 260px;
 border-top: 10px solid #099f2c;
 }
 
-.area-hover.void {
+.area-hover.river {
 position: absolute;
 top: 180px; left: 250px;
 border-top: 10px solid #ff47f0;
 }
 
-.area-hover.dune {
+.area-hover.cave {
 position: absolute;
 top: 400px; left: 180px;
 border-top: 10px solid #B2C4CE;
@@ -78,27 +77,6 @@ border-top: 10px solid #B2C4CE;
 font: normal 28px/34px 'EorzeaCalli';
 margin: 0; padding: 0 0 0 5px;
 color: #555;
-}
-
-.area-hover .ra {
-font-size: 30px;
-display: block;
-position: absolute;
-margin-top: -27px;
-left: 215px;
-color: #222;
-}
-
-.area-hover.grasslands .ra {
-color: #55b1ba;
-}
-
-.area-hover.wastes .ra {
-color: #9655ba;
-}
-
-.area-hover.snowcap .ra {
-color: #ad2727;
 }
 
 .area-hover > p {
@@ -117,26 +95,26 @@ font-weight: 700;
 color: #000;
 }
 
-#grasslands:hover + .area-hover {
+#yol:hover + .area-hover {
 display: block;
 }
 
-#wastes:hover + .area-hover {
+#bathhouse:hover + .area-hover {
 display: block;
 }
 
-#snowcap:hover + .area-hover {
+#stables:hover + .area-hover {
 display: block;
 }
 
-#wilds:hover + .area-hover {
+#hearth:hover + .area-hover {
 display: block;
 }
 
-#void1:hover + .area-hover, #void2:hover + .area-hover, #void3:hover + .area-hover {
+#river:hover + .area-hover {
 display: block;
 }
 
-#dunes:hover + .area-hover {
+#cave:hover + .area-hover {
 display: block;
 }
