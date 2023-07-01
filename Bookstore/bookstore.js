@@ -1,107 +1,229 @@
-var Books = (function() {
+// Get Color Attribute
+// Set the background book color
+$("li.book-item").each(function() {
+  var $this = $(this);
 
-	var $books = $('#bk-list > li > div.bk-book'),
-		booksCount = $books.length;
+  $this.find(".bk-front > div").css('background-color', $(this).data("color"));
+  $this.find(".bk-left").css('background-color', $(this).data("color"));
+  $this.find(".back-color").css('background-color', $(this).data("color"));
 
-	function init() {
+  $this.find(".item-details a.button").on('click', function() {
+    displayBookDetails($this);
+  });
+});
 
-		$books.each(function() {
+function displayBookDetails(el) {
+  var $this = $(el);
+  $('.main-container').addClass('prevent-scroll');
+  $('.main-overlay').fadeIn();
 
-			var $book = $(this),
-				$other = $books.not($book),
-				$parent = $book.parent(),
-				$page = $book.children('div.bk-page'),
-				$bookview = $parent.find('button.bk-bookview'),
-				$content = $page.children('div.bk-content'),
-				current = 0;
+  $this.find('.overlay-details').clone().prependTo('.main-overlay');
 
-			$parent.find('button.bk-bookback').on('click', function() {
+  $('a.close-overlay-btn').on('click', function(e) {
+    e.preventDefault();
+    $('.main-container').removeClass('prevent-scroll');
+    $('.main-overlay').fadeOut();
+    $('.main-overlay').find('.overlay-details').remove();
+  });
 
-				$bookview.removeClass('bk-active');
+  $('.main-overlay a.preview').on('click', function() {
+    $('.main-overlay .overlay-desc').toggleClass('activated');
+    $('.main-overlay .overlay-preview').toggleClass('activated');
+  });
 
-				if ($book.data('flip')) {
+  $('.main-overlay a.back-preview-btn').on('click', function() {
+    $('.main-overlay .overlay-desc').toggleClass('activated');
+    $('.main-overlay .overlay-preview').toggleClass('activated');
+  });
+}
 
-					$book.data({
-						opened: false,
-						flip: false
-					}).removeClass('bk-viewback').addClass('bk-bookdefault');
+/*
+ *  Offcanvas Menu
+ */
+// Open Offcanvas Menu
+$('.main-navigation a').on('click', function() {
+  $('.main-container').addClass('nav-menu-open');
+  $('.main-overlay').fadeIn();
+});
 
-				} else {
+// Close Offcanvas Menu
+$('.overlay-full').on('click', function() {
+  $('.main-container').removeClass('nav-menu-open');
+  $('.main-container').removeClass('prevent-scroll');
+  $(this).parent().fadeOut();
+  $(this).parent().find('.overlay-details').remove();
+});
 
-					$book.data({
-						opened: false,
-						flip: true
-					}).removeClass('bk-viewinside bk-bookdefault').addClass('bk-viewback');
+/*
+ *  Shuffle.js for Search, Catagory filter and Sort
+ */
 
-				}
+// Initiate Shuffle.js
+var Shuffle = window.shuffle;
 
-			});
+var bookList = function(element) {
+  this.element = element;
 
-			$bookview.on('click', function() {
+  this.shuffle = new Shuffle(element, {
+    itemSelector: '.book-item',
+  });
 
-				var $this = $(this);
+  this._activeFilters = [];
+  this.addFilterButtons();
+  this.addSorting();
+  this.addSearchFilter();
+  this.mode = 'exclusive';
+};
 
-				$other.data('opened', false).removeClass('bk-viewinside').parent().css('z-index', 0).find('button.bk-bookview').removeClass('bk-active');
-				if (!$other.hasClass('bk-viewback')) {
-					$other.addClass('bk-bookdefault');
-				}
+bookList.prototype.toArray = function(arrayLike) {
+  return Array.prototype.slice.call(arrayLike);
+};
 
-				if ($book.data('opened')) {
-					$this.removeClass('bk-active');
-					$book.data({
-						opened: false,
-						flip: false
-					}).removeClass('bk-viewinside').addClass('bk-bookdefault');
-				} else {
-					$this.addClass('bk-active');
-					$book.data({
-						opened: true,
-						flip: false
-					}).removeClass('bk-viewback bk-bookdefault').addClass('bk-viewinside');
-					$parent.css('z-index', booksCount);
-					current = 0;
-					$content.removeClass('bk-content-current').eq(current).addClass('bk-content-current');
-				}
+// Catagory Filter Functions
+// Toggle mode for the Catagory filters
+bookList.prototype.toggleMode = function() {
+  if (this.mode === 'additive') {
+    this.mode = 'exclusive';
+  } else {
+    this.mode = 'additive';
+  }
+};
 
-			});
+// Filter buttons eventlisteners
+bookList.prototype.addFilterButtons = function() {
+  var options = document.querySelector('.filter-options');
+  if (!options) {
+    return;
+  }
+  var filterButtons = this.toArray(options.children);
 
-			if ($content.length > 1) {
+  filterButtons.forEach(function(button) {
+    button.addEventListener('click', this._handleFilterClick.bind(this), false);
+  }, this);
+};
 
-				var $navPrev = $('<span class="bk-page-prev">&lt;</span>'),
-					$navNext = $('<span class="bk-page-next">&gt;</span>');
+// Function for the Catagory Filter
+bookList.prototype._handleFilterClick = function(evt) {
+  var btn = evt.currentTarget;
+  var isActive = btn.classList.contains('active');
+  var btnGroup = btn.getAttribute('data-group');
 
-				$page.append($('<nav></nav>').append($navPrev, $navNext));
+  if (this.mode === 'additive') {
+    if (isActive) {
+      this._activeFilters.splice(this._activeFilters.indexOf(btnGroup));
+    } else {
+      this._activeFilters.push(btnGroup);
+    }
 
-				$navPrev.on('click', function() {
-					if (current > 0) {
-						--current;
-						$content.removeClass('bk-content-current').eq(current).addClass('bk-content-current');
-					}
-					return false;
-				});
+    btn.classList.toggle('active');
+    this.shuffle.filter(this._activeFilters);
 
-				$navNext.on('click', function() {
-					if (current < $content.length - 1) {
-						++current;
-						$content.removeClass('bk-content-current').eq(current).addClass('bk-content-current');
-					}
-					return false;
-				});
+  } else {
+    this._removeActiveClassFromChildren(btn.parentNode);
 
-			}
+    var filterGroup;
+    if (isActive) {
+      btn.classList.remove('active');
+      filterGroup = Shuffle.ALL_ITEMS;
+    } else {
+      btn.classList.add('active');
+      filterGroup = btnGroup;
+    }
 
-		});
+    this.shuffle.filter(filterGroup);
+  }
+};
 
-	}
+// Remove classes for active states
+bookList.prototype._removeActiveClassFromChildren = function(parent) {
+  var children = parent.children;
+  for (var i = children.length - 1; i >= 0; i--) {
+    children[i].classList.remove('active');
+  }
+};
 
-	return {
-		init: init
-	};
+// Sort By
+// Watching for the select box to change to run
+bookList.prototype.addSorting = function() {
+  var menu = document.querySelector('.sort-options');
+  if (!menu) {
+    return;
+  }
+  menu.addEventListener('change', this._handleSortChange.bind(this));
+};
 
-})();
+// Sort By function Handler runs on change
+bookList.prototype._handleSortChange = function(evt) {
+  var value = evt.target.value;
+  var options = {};
 
-	$(function() {
+  function sortByDate(element) {
+    return element.getAttribute('data-created');
+  }
 
-	Books.init();
+  function sortByTitle(element) {
+    return element.getAttribute('data-title').toLowerCase();
+  }
 
+  if (value === 'date-created') {
+    options = {
+      reverse: true,
+      by: sortByDate,
+    };
+  } else if (value === 'title') {
+    options = {
+      by: sortByTitle,
+    };
+  }
+
+  this.shuffle.sort(options);
+};
+
+// Searching the Data-attribute Title
+// Advanced filtering
+// Waiting for input into the search field
+bookList.prototype.addSearchFilter = function() {
+  var searchInput = document.querySelector('.shuffle-search');
+  if (!searchInput) {
+    return;
+  }
+  searchInput.addEventListener('keyup', this._handleSearchKeyup.bind(this));
+};
+
+// Search function Handler to search list
+bookList.prototype._handleSearchKeyup = function(evt) {
+  var searchInput = document.querySelector('.shuffle-search');
+  var searchText = evt.target.value.toLowerCase();
+
+  // Check if Search input has value to toggle class
+  if (searchInput && searchInput.value) {
+    $('.catalog-search').addClass('input--filled');
+  } else {
+    $('.catalog-search').removeClass('input--filled');
+  }
+
+  this.shuffle.filter(function(element, shuffle) {
+
+    // If there is a current filter applied, ignore elements that don't match it.
+    if (shuffle.group !== Shuffle.ALL_ITEMS) {
+      // Get the item's groups.
+      var groups = JSON.parse(element.getAttribute('data-groups'));
+      var isElementInCurrentGroup = groups.indexOf(shuffle.group) !== -1;
+
+      // Only search elements in the current group
+      if (!isElementInCurrentGroup) {
+        return false;
+      }
+    }
+
+    var titleElement = element.querySelector('.book-item_title');
+    var titleText = titleElement.textContent.toLowerCase().trim();
+
+    return titleText.indexOf(searchText) !== -1;
+  });
+};
+
+// Wait till dom load to start the Shuffle js funtionality
+document.addEventListener('DOMContentLoaded', function() {
+  window.book_list = new bookList(document.getElementById('grid'));
 });
