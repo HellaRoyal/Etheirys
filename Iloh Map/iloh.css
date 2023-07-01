@@ -26,36 +26,6 @@ border: 0;
 filter: grayscale(70%);
 }
 
-#dunes:hover, #void1:hover, #void2:hover, #void3:hover, #snowcap:hover, #wilds:hover, #grasslands:hover, #wastes:hover {
-width: 800px; height: 774px;
-position: absolute;
-top: 0;
-display: block;
-}
-
-#dunes:hover {
-background: url('https://i.ibb.co/5KGqXm1/dunes-hover-2.png');
-}
-
-#void1:hover, #void2:hover, #void3:hover {
-background: url('https://i.ibb.co/ChMzxZT/void-hover-2.png');
-}
-
-#wilds:hover {
-background: url('https://i.ibb.co/FbQ6JGR/wilds-hover-2.png');
-}
-
-#snowcap:hover {
-background: url('https://i.ibb.co/0QSFhzQ/snowcap-hover-2.png');
-}
-
-#wastes:hover {
-background: url('https://i.ibb.co/B4NkxL9/wastes-hover-2.png');
-}
-#grasslands:hover {
-background: url('https://i.ibb.co/5cZ49cF/grasslands-hover-2.png');
-}
-
 .area-hover {
 width: 250px; min-height: 100px;
 position: relative;
