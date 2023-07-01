@@ -37,6 +37,7 @@ box-shadow: 0 0 8px rgba(0,0,0,0.5);
 padding-bottom: 10px;
 display: none;
 }
+
 .area-hover.yol {
 position: absolute;
 top: 150px; left: 470px;
@@ -68,6 +69,90 @@ border-top: 10px solid #ff47f0;
 }
 
 .area-hover.cave {
+position: absolute;
+top: 400px; left: 180px;
+border-top: 10px solid #B2C4CE;
+}
+
+.area-hover.yurt1 {
+position: absolute;
+top: 400px; left: 180px;
+border-top: 10px solid #B2C4CE;
+}
+
+.area-hover.yurt2 {
+position: absolute;
+top: 400px; left: 180px;
+border-top: 10px solid #B2C4CE;
+}
+
+.area-hover.yurt3 {
+position: absolute;
+top: 400px; left: 180px;
+border-top: 10px solid #B2C4CE;
+}
+
+.area-hover.yurt4 {
+position: absolute;
+top: 400px; left: 180px;
+border-top: 10px solid #B2C4CE;
+}
+
+.area-hover.yurt5 {
+position: absolute;
+top: 400px; left: 180px;
+border-top: 10px solid #B2C4CE;
+}
+
+.area-hover.yurt6 {
+position: absolute;
+top: 400px; left: 180px;
+border-top: 10px solid #B2C4CE;
+}
+
+.area-hover.yurt7 {
+position: absolute;
+top: 400px; left: 180px;
+border-top: 10px solid #B2C4CE;
+}
+
+.area-hover.yurt8 {
+position: absolute;
+top: 400px; left: 180px;
+border-top: 10px solid #B2C4CE;
+}
+
+.area-hover.yurt9 {
+position: absolute;
+top: 400px; left: 180px;
+border-top: 10px solid #B2C4CE;
+}
+
+.area-hover.yurt10 {
+position: absolute;
+top: 400px; left: 180px;
+border-top: 10px solid #B2C4CE;
+}
+
+.area-hover.yurt11 {
+position: absolute;
+top: 400px; left: 180px;
+border-top: 10px solid #B2C4CE;
+}
+
+.area-hover.yurt12 {
+position: absolute;
+top: 400px; left: 180px;
+border-top: 10px solid #B2C4CE;
+}
+
+.area-hover.yurt13 {
+position: absolute;
+top: 400px; left: 180px;
+border-top: 10px solid #B2C4CE;
+}
+
+.area-hover.yurt14 {
 position: absolute;
 top: 400px; left: 180px;
 border-top: 10px solid #B2C4CE;
@@ -118,3 +203,71 @@ display: block;
 #cave:hover + .area-hover {
 display: block;
 }
+
+#yurt1:hover + .area-hover {
+display: block;
+}
+
+#yurt2:hover + .area-hover {
+display: block;
+}
+
+#yurt3:hover + .area-hover {
+display: block;
+}
+
+
+#yurt4:hover + .area-hover {
+display: block;
+}
+
+#yurt5:hover + .area-hover {
+display: block;
+}
+
+#yurt6:hover + .area-hover {
+display: block;
+}
+
+#yurt7:hover + .area-hover {
+display: block;
+}
+
+#yurt8:hover + .area-hover {
+display: block;
+}
+
+#yurt9:hover + .area-hover {
+display: block;
+}
+
+#yurt10:hover + .area-hover {
+display: block;
+}
+
+#yurt11:hover + .area-hover {
+display: block;
+}
+
+#yurt12:hover + .area-hover {
+display: block;
+}
+
+#yurt13:hover + .area-hover {
+display: block;
+}
+
+#yurt14:hover + .area-hover {
+display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
