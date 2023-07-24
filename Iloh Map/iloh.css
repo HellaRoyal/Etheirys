@@ -1,256 +1,145 @@
 #ac_map {
-width: 1100px; height: 1100px;
-margin: 43px auto;
-background: #eee;
-/*box-shadow:
-0 0 0 30px #f0f0f0,
-0 0 0 35px #fff,
-0 0 0 36px #eee;*/
-position: relative;
+  width: 800px; height: 774px;
+  margin: 43px auto;
+  background: #eee;
+  /*box-shadow:
+    0 0 0 30px #f0f0f0,
+    0 0 0 35px #fff,
+    0 0 0 36px #eee;*/
+  border: 1px solid #eee;
+  outline: 10px dashed #333;
+  position: relative;
+}
+#overlay {
+  width: 800px;
+  height: 744px;
+  position: absolute;
+  z-index: 2;
+}
+#overlay img {
+  width: 800px;
+  height: 774px;
+  border: 0;
+}
+#backmap {
+  filter: grayscale(70%);
+}
+#dunes:hover, #void1:hover, #void2:hover, #void3:hover, #snowcap:hover, #wilds:hover, #grasslands:hover, #wastes:hover {
+  width: 800px; height: 774px;
+  position: absolute;
+  top: 0;
+  display: block;
+}
+#dunes:hover {
+  background: url('https://i.ibb.co/5KGqXm1/dunes-hover-2.png');
+}
+#void1:hover, #void2:hover, #void3:hover {
+  background: url('https://i.ibb.co/ChMzxZT/void-hover-2.png');
+}
+#wilds:hover {
+  background: url('https://i.ibb.co/FbQ6JGR/wilds-hover-2.png');
+}
+#snowcap:hover {
+  background: url('https://i.ibb.co/0QSFhzQ/snowcap-hover-2.png');
+}
+#wastes:hover {
+  background: url('https://i.ibb.co/B4NkxL9/wastes-hover-2.png');
+}
+#grasslands:hover {
+  background: url('https://i.ibb.co/5cZ49cF/grasslands-hover-2.png');
 }
 
 .area-hover {
-width: 250px; min-height: 100px;
-position: relative;
-background: #fff;
-border-radius: 5px;
-border: 1px solid #777;
-border-top: 10px solid #222;
-box-shadow: 0 0 8px rgba(0,0,0,0.5);
-padding-bottom: 10px;
-display: none;
+  width: 250px; min-height: 100px;
+  position: relative;
+  background: #fff;
+  border-radius: 5px;
+  border: 1px solid #777;
+  border-top: 10px solid #222;
+  box-shadow: 0 0 8px rgba(0,0,0,0.5);
+  padding-bottom: 10px;
+  display: none;
 }
-
-.area-hover.yol {
-position: absolute;
-top: 150px; left: 470px;
-border-top: 10px solid #55b1ba;
+.area-hover.grasslands {
+  position: absolute;
+  top: 150px; left: 470px;
+  border-top: 10px solid #55b1ba;
 }
-
-.area-hover.bathhouse {
-position: absolute;
-top: 350px; left: 120px;
-border-top: 10px solid #9655ba;
+.area-hover.wastes {
+  position: absolute;
+  top: 350px; left: 120px;
+  border-top: 10px solid #9655ba;
 }
-
-.area-hover.stables {
-position: absolute;
-top: 50px; left: 120px;
-border-top: 10px solid #ad2727;
+.area-hover.snowcap {
+  position: absolute;
+  top: 50px; left: 120px;
+  border-top: 10px solid #ad2727;
 }
-
-.area-hover.hearth {
-position: absolute;
-top: 100px; left: 260px;
-border-top: 10px solid #099f2c;
+.area-hover.wilds {
+  position: absolute;
+  top: 100px; left: 260px;
+  border-top: 10px solid #099f2c;
 }
-
-.area-hover.river {
-position: absolute;
-top: 180px; left: 250px;
-border-top: 10px solid #ff47f0;
+.area-hover.void {
+  position: absolute;
+  top: 180px; left: 250px;
+  border-top: 10px solid #ff47f0;
 }
-
-.area-hover.cave {
-position: absolute;
-top: 400px; left: 180px;
-border-top: 10px solid #B2C4CE;
+.area-hover.dune {
+  position: absolute;
+  top: 400px; left: 180px;
+  border-top: 10px solid #d4d46a;
 }
-
-.area-hover.yurt1 {
-position: absolute;
-top: 400px; left: 180px;
-border-top: 10px solid #B2C4CE;
-}
-
-.area-hover.yurt2 {
-position: absolute;
-top: 400px; left: 180px;
-border-top: 10px solid #B2C4CE;
-}
-
-.area-hover.yurt3 {
-position: absolute;
-top: 400px; left: 180px;
-border-top: 10px solid #B2C4CE;
-}
-
-.area-hover.yurt4 {
-position: absolute;
-top: 400px; left: 180px;
-border-top: 10px solid #B2C4CE;
-}
-
-.area-hover.yurt5 {
-position: absolute;
-top: 400px; left: 180px;
-border-top: 10px solid #B2C4CE;
-}
-
-.area-hover.yurt6 {
-position: absolute;
-top: 400px; left: 180px;
-border-top: 10px solid #B2C4CE;
-}
-
-.area-hover.yurt7 {
-position: absolute;
-top: 400px; left: 180px;
-border-top: 10px solid #B2C4CE;
-}
-
-.area-hover.yurt8 {
-position: absolute;
-top: 400px; left: 180px;
-border-top: 10px solid #B2C4CE;
-}
-
-.area-hover.yurt9 {
-position: absolute;
-top: 400px; left: 180px;
-border-top: 10px solid #B2C4CE;
-}
-
-.area-hover.yurt10 {
-position: absolute;
-top: 400px; left: 180px;
-border-top: 10px solid #B2C4CE;
-}
-
-.area-hover.yurt11 {
-position: absolute;
-top: 400px; left: 180px;
-border-top: 10px solid #B2C4CE;
-}
-
-.area-hover.yurt12 {
-position: absolute;
-top: 400px; left: 180px;
-border-top: 10px solid #B2C4CE;
-}
-
-.area-hover.yurt13 {
-position: absolute;
-top: 400px; left: 180px;
-border-top: 10px solid #B2C4CE;
-}
-
-.area-hover.yurt14 {
-position: absolute;
-top: 400px; left: 180px;
-border-top: 10px solid #B2C4CE;
-}
-
 .area-hover h1 {
-font: normal 28px/34px 'EorzeaCalli';
-margin: 0; padding: 0 0 0 5px;
-color: #555;
+  font: normal 16px/28px 'Uncial Antiqua', cursive;
+  margin: 0; padding: 0 0 0 5px;
+  color: #555;
 }
-
+.area-hover .ra {
+  font-size: 30px;
+  display: block;
+  position: absolute;
+  margin-top: -27px;
+  left: 215px;
+  color: #222;
+}
+.area-hover.grasslands .ra {
+  color: #55b1ba;
+}
+.area-hover.wastes .ra {
+  color: #9655ba;
+}
+.area-hover.snowcap .ra {
+  color: #ad2727;
+}
 .area-hover > p {
-margin: 0; padding: 0 10px;
-font: normal 11px/15px Arial, sans-serif;
-text-align: justify;
-color: #444;
+  margin: 0; padding: 0 10px;
+  font: normal 11px/15px Arial, sans-serif;
+  text-align: justify;
+  color: #444;
 }
-
 .area-hover > p ~ p {
-margin-top: 10px;
+  margin-top: 10px;
 }
-
 .area-hover p b {
-font-weight: 700;
-color: #000;
+  font-weight: 700;
+  color: #000;
 }
-
-#yol:hover + .area-hover {
-display: block;
+#grasslands:hover + .area-hover {
+  display: block;
 }
-
-#bathhouse:hover + .area-hover {
-display: block;
+#wastes:hover + .area-hover {
+  display: block;
 }
-
-#stables:hover + .area-hover {
-display: block;
+#snowcap:hover + .area-hover {
+  display: block;
 }
-
-#hearth:hover + .area-hover {
-display: block;
+#wilds:hover + .area-hover {
+  display: block;
 }
-
-#river:hover + .area-hover {
-display: block;
+#void1:hover + .area-hover, #void2:hover + .area-hover, #void3:hover + .area-hover {
+  display: block;
 }
-
-#cave:hover + .area-hover {
-display: block;
+#dunes:hover + .area-hover {
+  display: block;
 }
-
-#yurt1:hover + .area-hover {
-display: block;
-}
-
-#yurt2:hover + .area-hover {
-display: block;
-}
-
-#yurt3:hover + .area-hover {
-display: block;
-}
-
-
-#yurt4:hover + .area-hover {
-display: block;
-}
-
-#yurt5:hover + .area-hover {
-display: block;
-}
-
-#yurt6:hover + .area-hover {
-display: block;
-}
-
-#yurt7:hover + .area-hover {
-display: block;
-}
-
-#yurt8:hover + .area-hover {
-display: block;
-}
-
-#yurt9:hover + .area-hover {
-display: block;
-}
-
-#yurt10:hover + .area-hover {
-display: block;
-}
-
-#yurt11:hover + .area-hover {
-display: block;
-}
-
-#yurt12:hover + .area-hover {
-display: block;
-}
-
-#yurt13:hover + .area-hover {
-display: block;
-}
-
-#yurt14:hover + .area-hover {
-display: block;
-}
-
-
-
-
-
-
-
-
-
-
-
