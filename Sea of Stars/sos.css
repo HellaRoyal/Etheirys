@@ -44,6 +44,7 @@ header ul b {
   font-weight: bold;
 }
 
-h2 {
-  margin: 0;
+#rosterimg {
+  width: 160px;
+  height: auto;
 }
