@@ -6,6 +6,7 @@ a {
 
 header {
   width: 100%;
+  font-size: 0.625em;
   position: relative;
   text-align: left;
   padding: 15px 0;
