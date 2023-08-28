@@ -22,6 +22,7 @@ header li {
 
 header li a {
   color: #303030;
+  box-shadow: rgb(217, 208, 210) 0px -0.5em 0px 0px inset;
   margin: 0 5px;
 }
 
@@ -39,7 +40,6 @@ header ul b {
 
 .selected {
   color: #D9D0D2;
-  border-bottom-color: #97c5e0;
   box-shadow: rgb(48, 48, 48) 0px -0.5em 0px 0px inset;
   font-weight: bold;
 }
