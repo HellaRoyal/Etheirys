@@ -21,8 +21,7 @@ header li {
 }
 
 header li a {
-  color: #303030;
-  box-shadow: rgb(217, 208, 210) 0px -0.5em 0px 0px inset;
+  color: #4a4a4a;
   margin: 0 5px;
 }
 
