@@ -41,7 +41,7 @@ header ul b {
 .selected {
   color: #D9D0D2;
   border-bottom-color: #97c5e0;
-  box-shadow: rgb(151, 197, 224) 0px -0.5em 0px 0px inset;
+  box-shadow: rgb(48, 48, 48) 0px -0.5em 0px 0px inset;
   font-weight: bold;
 }
 
