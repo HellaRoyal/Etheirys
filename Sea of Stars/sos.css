@@ -8,11 +8,11 @@ header {
   width: 100%;
   position: relative;
   text-align: left;
-  padding: 5px 0;
+  padding: 15px 0;
   color: #fff;
 }
 
-header .filters {padding:10px 45px 0 45px;}
+header .filters {padding:10px 5px 0 5px;}
 header ul {padding:0;}
 
 header li {
